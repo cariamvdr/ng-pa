@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 
-<html ng-app="pa">
+<html>
     <head>
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/app.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <script src="lib/angular.min.js" type="text/javascript"></script>
         <!--script src="lib/bootstrap.min.js" type="text/javascript"></script-->
         <script src="js/app.js" type="text/javascript"></script>
         <script src="js/controllers/PressioneController.js" type="text/javascript"></script>
+        <link href="ui_grid/ui-grid.css" rel="stylesheet" type="text/css"/>
+        <script src="ui_grid/ui-grid.js" type="text/javascript"></script>
+        <style>
+        .myGrid {
+            width: auto;
+            height: auto;
+        }
+        </style>
     </head>
 
-    <body>
+    <body ng-app="pa">
         <div ng-controller="PressioneController as pressione"> test: {{pressione.test}}
-        <div> {{ dati }} </div>
+            <div ui-grid="{   data: dati,
+                                columnDefs: [
+                                    {name: 'datamisurazione', field: 'datamisurazione'},
+                                    {name: 'sistolica', field: 'sistolica'},
+                                    {name: 'diastolica', field: 'diastolica'},
+                                    {name: 'pesocorporeo', field: 'pesocorporeo'},
+                                    {name: 'cancella', cellTemplate: '<div><button>Click Here</button></div>'}
+                                ]}" class="myGrid"></div>            
         </div>
     </body>
 </html>
