@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="../lib/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../lib/angular.min.js" type="text/javascript"></script>
+        <script src="../js/app.js" type="text/javascript"></script>
+        <script src="../js/controllers/TemperaturaController.js" type="text/javascript"></script>
+        <link href="../ui_grid/ui-grid.css" rel="stylesheet" type="text/css"/>
+        <script src="../ui_grid/ui-grid.js" type="text/javascript"></script>
+        <link href="../css/app.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>        
+    </head>
+    
+    <body ng-app="pa">
+        <div ng-controller="TemperaturaController as temperatura"> 
+            <form>
+                <input id="datamisurazione" type="date"     placeholder="data misurazione" ng-model="newMisurazione.datamisurazione">
+                <input id="sistolica"       type="number"   placeholder="temperatura"     step="1"    min="0"     max="200" ng-model="newMisurazione.valore">
+                <button data-ng-click="temperatura.addMisurazione()">Submit</button>
+            </form>
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Data misurazione 
+                        </th>
+                        <th>
+                            Temperatura
+                        </th>                        
+                        <th>
+                            Cancella
+                        </th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="dato in dati">
+                    <tr >
+                        <td>
+                            {{dato.datamisurazione }}
+                        </td>
+                        <td>
+                            {{dato.valore}}
+                        </td>
+                        <td>
+                            <button ng-click="temperatura.deleteMisurazione(dato.id)">X</button>
+                        </td>
+                    </tr>                    
+                </tbody>
+            </table>
+    </body>
+</html>
