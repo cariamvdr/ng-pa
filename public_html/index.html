@@ -9,63 +9,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <script src="lib/angular.min.js" type="text/javascript"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
         <script src="lib/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/app.js" type="text/javascript"></script>
+        <script src="js/controllers/HomeController.js" type="text/javascript"></script>
         <script src="js/controllers/PressioneController.js" type="text/javascript"></script>
+        <script src="js/controllers/TemperaturaController.js" type="text/javascript"></script>
         <link href="ui_grid/ui-grid.css" rel="stylesheet" type="text/css"/>
         <script src="ui_grid/ui-grid.js" type="text/javascript"></script>
         
     </head>
     
     <body ng-app="pa">
-        <div ng-controller="PressioneController as pressione"> 
-            <form>
-                <input id="datamisurazione" type="date"     placeholder="data misurazione" ng-model="newMisurazione.datamisurazione">
-                <input id="sistolica"       type="number"   placeholder="sistolica"     step="1"    min="0"     max="200" ng-model="newMisurazione.sistolica">
-                <input id="diastolica"      type="number"   placeholder="diastolica"    step="1"    min="0"     max="200" ng-model="newMisurazione.diastolica">
-                <input id="pesocorporeo"    type="number"   placeholder="peso corporeo" step="0.01" min="0.00"  max="999.99" ng-model="newMisurazione.pesocorporeo">
-                <button data-ng-click="pressione.addMisurazione()">Submit</button>
-            </form>
-            
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>
-                            Data misurazione 
-                        </th>
-                        <th>
-                            Sistolica
-                        </th>
-                        <th>
-                            Diastolica
-                        </th>
-                        <th>
-                            Peso corporeo
-                        </th>
-                        <th>
-                            Cancella
-                        </th>
-                    </tr>
-                </thead>
-                <tbody ng-repeat="dato in dati">
-                    <tr >
-                        <td>
-                            {{dato.datamisurazione }}
-                        </td>
-                        <td>
-                            {{dato.sistolica}}
-                        </td>
-                        <td>
-                            {{dato.diastolica}}
-                        </td>
-                        <td>
-                            {{dato.pesocorporeo}}
-                        </td>
-                        <td>
-                            <button ng-click="pressione.deleteMisurazione(dato.id)">X</button>
-                        </td>
-                    </tr>                    
-                </tbody>
-            </table>
+    
     </body>
 </html>
